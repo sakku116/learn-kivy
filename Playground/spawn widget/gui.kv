@@ -1,0 +1,13 @@
+<my@Label>
+    text: 'hello world'
+<MyLayout>
+    GridLayout:
+        id: layout_to_add
+        cols: 1
+        size: root.width, root.height
+
+        padding: 20
+
+        Button: 
+            text: 'btn1'
+            on_press: root.add_widgets()

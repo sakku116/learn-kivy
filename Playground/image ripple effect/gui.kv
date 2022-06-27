@@ -1,0 +1,49 @@
+
+<Main>
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        Button:
+            background_normal: ''
+            background_color: (0,0,0,0)
+            size_hint: None, None
+            width: 271
+            height: 85
+            pos_hint: {'center_x':.5, 'center_y':.5}
+
+            canvas.before:
+                Color:
+                    rgba: (1,1,1,0)
+                RoundedRectangle:
+                    size: [271, 85]
+                    pos: self.pos
+                    radius: [85/2]
+
+            FloatLayout:
+                pos: self.parent.pos
+                size: self.parent.size
+                canvas.before:
+                    Color:
+                        rgba: (0,0,1,1)
+                    Line:
+                        rectangle: self.x, self.y, self.width, self.height
+
+                MyImage:
+                    source: 'float button.png'
+                    size: 271, 85
+
+                    pos: self.parent.pos
+
+                MyButton:
+                    size: self.parent.size
+                    pos: self.parent.pos
+                    background_normal: ''
+                    background_color: (1,1,1,0)
+                    canvas.before:
+                        Color:
+                            rgba: (0,0,1,0)
+                        RoundedRectangle:
+                            size: [271, 85]
+                            pos: self.pos
+                            radius: [85/2]

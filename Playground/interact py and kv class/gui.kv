@@ -1,0 +1,15 @@
+<MyWidget>
+    # jika parent class juga di declare dalam py file maka tidak usah ditambah -
+    # @Button, cukup dalam python 'class MyWidget(Button)'
+    on_press: root.animate()
+<MyLayout>
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        Button:
+            text: root.t # dengan stringproperty
+            # text: root.t2 # hanya dengan variable dalam MyLayout class
+            # sama saja
+            # variable tersebut bisa digunakan asal parent class yang sama (MyLayout)
+        MyWidget:

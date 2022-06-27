@@ -1,0 +1,47 @@
+
+<MyLayout>
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        padding: 70
+
+        canvas.before:
+            Color:
+                rgba: (1,1,1,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        
+        Button: 
+            text: 'button'
+            color: (35/255, 28/255, 211/255, 1)
+            font_size: 30
+            background_normal: ''
+            background_color: (0,0,0,0)
+            on_press: root.ripple_effect(self)
+
+            my_radius: 50
+            opacity_effect: 1
+            size_effect: [0,0]
+            canvas.before:
+                # background
+                Color:
+                    rgba: (249/255, 249/255, 249/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [self.my_radius]
+                    
+                # outline
+                Color: 
+                    rgba: (3/255, 131/255, 255/255, 1)
+                Line: 
+                    width: 2
+                    rounded_rectangle: self.x, self.y, self.width, self.height, self.my_radius
+
+                # shape effect
+                Color:
+                    rgba: (228/255, 228/255, 228/255, self.opacity_effect)
+                Ellipse:
+                    size: self.size_effect
+                    pos: [self.center_x - self.size_effect[0]/2, self.center_y - self.size_effect[1]/2]

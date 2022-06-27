@@ -1,0 +1,40 @@
+
+<MyCard@Label>
+    my_radius: 10
+    color: (0,0,0,1)
+    canvas.before:
+        Color:
+            rgba: (1,0,0,1)
+        RoundedRectangle:
+            size: self.size
+            pos: [self.x+10, self.y-10]
+            radius: [self.my_radius]
+        Color:
+            rgba: (1,1,1,1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [self.my_radius]
+        Color:
+            rgba: (1,0,0,1)
+        Line:
+            width: 2
+            rounded_rectangle: self.x, self.y, self.width, self.height, self.my_radius
+
+
+<MyLayout>
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        canvas.before:
+            Color:
+                rgba: (1,1,1,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        padding: 100
+        MyCard:
+            text: 'hello'
+            font_size: 30
+            my_radius: 20

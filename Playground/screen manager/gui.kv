@@ -1,0 +1,40 @@
+# buat kerangka antara manager dan screen
+<WindowManager>
+    First:
+    Second:
+
+# screen
+<First>:
+    name: 'first'
+
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+
+        Label:
+            text: 'first screen'
+
+        Button:
+            text: 'next screen'
+            on_release:
+                app.root.current = 'second' # screen class name
+                # ini mengubah semua animasi transisi semua screen
+                # tidak berlaku untuk satu screen
+                app.root.transition.direction = 'left'
+
+<Second>:
+    name: 'second'
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        Label:
+            text: 'second screen'
+
+        Button:
+            text: 'go back'
+            on_release:
+                app.root.current = 'first' # screen class name
+                # ini mengubah semua animasi transisi semua screen
+                app.root.transition.direction = 'right'

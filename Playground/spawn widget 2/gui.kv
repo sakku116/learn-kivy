@@ -1,0 +1,37 @@
+<MyWidget@Label>
+    text: 'hello world'
+    font_size: 30
+    color: (0,0,0,1)
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+<MyLayout>
+    GridLayout:
+        id: my_layout
+        cols: 1
+        size: root.width, root.height
+
+        FloatLayout:
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    id: my_label
+                    text: 'press the button to spawn MyWidget'
+                Button:
+                    text: 'press me'
+                    on_press: root.spawn_widget(new_widget)
+                    # bisa menulis ids dari sebuah widget hanya dengan id nya saja
+                    # kalau di kivy lang
+                    # bisa juga menggunakan root.ids.(id)
+
+            MyWidget:
+                id: new_widget
+                my_top: 0
+                size_hint: .5,.5
+                pos_hint: {'right':.75, 'top':self.my_top}
+
+        
+                

@@ -1,0 +1,54 @@
+#: import Factory kivy.factory.Factory
+
+<MyLayout>
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        Screen:
+
+            MDCard:
+                orientation: "vertical"
+                padding: "9dp"
+                spacing: "5dp"
+                size_hint: None, None
+                size: "280dp", "290dp"
+                pos_hint: {"center_x": .5, "center_y": .5}
+
+                MDLabel:
+                    id: login_header_label
+                    text: 'Login Form'
+                    theme_text_color: "Secondary"
+                    adaptive_height: True
+                    font_size: 20
+
+                MDSeparator:
+                    height: '1.5dp'
+                
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint: (1,.5)
+                    Screen:
+                        MDTextField:
+                            id: username_input
+                            size_hint: None, None
+                            size: 200, 150
+                            pos_hint: {"center_x":.5, "center_y":.8}
+                            hint_text: "Username"
+                            mode: "rectangle"
+                        
+
+                        MDTextField:
+                            id: pass_input
+                            size_hint: None, None
+                            size: 200, 150
+                            pos_hint: {"center_x":.5, "center_y":.5}
+                            hint_text: "Password"
+                            mode: "rectangle"
+
+                        MDFillRoundFlatButton:
+                            text: "login"
+                            pos_hint: {'center_x': .5, 'center_y': .2}
+                            on_press: root.login()
+
+            
